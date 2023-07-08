@@ -1,0 +1,30 @@
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
+import numpy as np
+import matplotlib.pyplot as plt
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Sample data (square footage, number of bedrooms, number of bathrooms, and corresponding prices)
+X = np.array([[1000, 2, 1],
+              [1500, 3, 2],
+              [2000, 4, 2.5],
+              [1200, 2, 1.5],
+              [1800, 3, 2]])
+
+y = np.array([150000, 200000, 250000, 180000, 220000])
+
+# Create and train the linear regression model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predict house prices
+new_data = np.array([[1600, 3, 2.5],
+                     [1900, 4, 2]])
+predicted_prices = model.predict(new_data)
+
+# Print the predicted prices
+for i in range(len(new_data)):
+    print(f"Predicted price for house {i+1}: ${predicted_prices[i]:.2f}")
